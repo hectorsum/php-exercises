@@ -13,10 +13,12 @@
 
   
   echo "<h1>".greeting()."</h1>";
-  if(isset($_POST['car'])){
-    $car = $_POST['car'];
+  if (isset($_POST['send'])){
+    if(isset($_POST['car'])){
+      $car = $_POST['car'];
+    }
+    what_car_is(strtolower($car));
   }
-  what_car_is(strtolower($car));
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +26,7 @@
   <form method="POST" action="./functions.php">
     <label for="car">Type your car: </label>
     <input type="text" name="car" id="car" autocomplete="off"/>
-    <input type="submit"/>
+    <input type="submit" name="send"/>
   </form>
 </body>
 </html>
